@@ -63,7 +63,10 @@ export default defineNuxtConfig({
     enforceModuleCompatibility: true,
   },
 
+  // Cloudflare Pages specific configuration
+  ssr: true,
   nitro: {
+    preset: 'cloudflare-pages',
     experimental: {
       openAPI: true,
     },
@@ -83,6 +86,11 @@ export default defineNuxtConfig({
           route: '/_docs/swagger',
         },
       },
+    },
+    // Cloudflare Pages compatibility
+    cloudflare: {
+      compatibilityDate: '2024-05-08',
+      compatibilityFlags: ['nodejs_compat'],
     },
   },
 
